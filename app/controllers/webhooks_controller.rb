@@ -4,7 +4,7 @@ require 'thread'
 class WebhooksController < ApplicationController
   def callback
     Thread.new do
-      # sender = TelegramSender.new(user, chat)
+      sender = BotSender.new chat
       # OptionParser.new(text, sender)
     end
     render nothing: true, head: :ok
