@@ -4,8 +4,7 @@ require 'thread'
 class WebhooksController < ApplicationController
   def callback
     Thread.new do
-      sender = BotSender.new chat
-      # OptionParser.new(text, sender)
+      CommandChooser.new.start(user, chat, text)
     end
     render nothing: true, head: :ok
   end

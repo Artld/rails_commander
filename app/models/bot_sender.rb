@@ -28,6 +28,7 @@ class BotSender
 
   def send_error(e)
     message = "Error #{e.error_code}: #{e.message}"
+    Logger.new(STDOUT).error message
     send_message message if @chat.present?
   end
 
