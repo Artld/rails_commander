@@ -1,9 +1,12 @@
 module Command
-  def initialize(user, sender)
-    @user = user
-    @sender = sender
-  end
+  module Common
+    def initialize(user, sender, options)
+      @user = user
+      @sender = sender
+      @options = options
+    end
 
-  def parse(options)
+    def perform
+    end
   end
 end
