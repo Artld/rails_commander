@@ -1,12 +1,14 @@
 module Command
   module Common
-    def initialize(user, sender, options)
+    def initialize(user, sender)
       @user = user
       @sender = sender
-      @options = options
     end
 
-    def perform
+    def help
+    end
+
+    def perform(_options)
     end
   end
 end

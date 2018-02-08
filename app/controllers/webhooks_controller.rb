@@ -4,7 +4,7 @@ require 'thread'
 class WebhooksController < ApplicationController
   def callback
     Thread.new do
-      CommandChooser.new.start(user, chat, text)
+      CommandFactory.new.build(user, chat, text)
     end
     render nothing: true, head: :ok
   end

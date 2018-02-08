@@ -1,15 +1,14 @@
+# General application help
 class Command::Help
   include Command::Common
 
-  def perform
-    #classes = Command.constants.select { |c| Command.const_get(c).is_a? Class }
-    #commands = classes.map { |c| c.to_s.downcase }.join "\n"
-
+  def help
     files = Dir['lib/command/*.rb']
-    commands = files.map { |f| f.split('/').last.gsub('.rb', '') }.join "\n"
+    commands = files.map { |f| f.split('/').last.gsub('.rb', '') }.join "\n  "
 
     @sender.send_text "Usage: COMMAND [OPTIONS]\n"\
+                      "Type COMMAND without arguments to show details.\n"\
                       "Available commands:\n"\
-                      "#{commands}"
+                      "  #{commands}"
   end
 end
