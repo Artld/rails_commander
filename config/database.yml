@@ -19,4 +19,4 @@ test:
 
 production:
   <<: *default
-  database: vk_refugee_production
+  database: rails_commander_production

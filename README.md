@@ -1,24 +1,21 @@
-# README
+## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To run this application:
 
-Things you may want to cover:
+1. Run `bundle install`, write your database configuration in *config/database.yml*, run `rake db:create db:migrate`
 
-* Ruby version
+2. Create bot using BotFather in Telegram. Set webhook to your server with query:
 
-* System dependencies
+   `https://api.telegram.org/bot<BOT_TOKEN>/setWebhook?url=<your_https_url>/webhooks/telegram_<WEBHOOK_TOKEN>`
 
-* Configuration
+   `BOT_TOKEN` - telegram bot token from BotFather, `WEBHOOK_TOKEN` - some big random token
 
-* Database creation
+   If you have not https on your server/computer, use ngrok:
 
-* Database initialization
+   `ngrok http 3000`
 
-* How to run the test suite
+3. Run application with variables like that:
 
-* Services (job queues, cache servers, search engines, etc.)
+   `WEBHOOK_TOKEN=<WEBHOOK_TOKEN> BOT_TOKEN=<BOT_TOKEN> rails s`
 
-* Deployment instructions
-
-* ...
+4. Extend functionality by adding your classes to *lib/command/*
